@@ -17,7 +17,7 @@
       </li>
       <% if user_signed_in? %>
         <li>
-          <%= "Users" %>
+          <%= link_to "Users", users_path %>
         </li>
         <li>
           <%= link_to "Books", books_path %>
