@@ -9,7 +9,7 @@
   </p>
   <p><%= @book.body %></p>
   <% if @book.user == current_user %>
-    <%= link_to "Edit", edit_user_path(user.id) %>
+    <%= link_to "Edit", edit_user_path(current_user.id) %>
     <%= link_to "Destroy", book_path(@book), method: :delete %>
   <% end %>
 </div>
