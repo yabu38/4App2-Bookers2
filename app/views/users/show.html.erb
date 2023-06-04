@@ -1,9 +1,19 @@
-<div>
-  <h1>User info</h1>
-  <%= image_tag @user.get_profile_image(100,100) %>
-  <h3>name <%= @user.name %></h3>
-  <h3>introduction <%= @user.introduction %></h3>
-</div>
+
+<h1>User info</h1>
+<%= image_tag @user.get_profile_image(100,100) %>
+<table>
+  <tbody>
+    <tr>
+      <th>name</th>
+      <th><%= @user.name %></th>
+    </tr>
+    <tr>
+      <th>introduction</th>
+      <th><%= @user.introduction %></th>
+    </tr>
+  </tbody>
+</table>
+<p><%= link_to "プロフィール編集", edit_user_path(@user.id) %></p>
 
 <h1>Books</h1>
   <table>
@@ -18,7 +28,11 @@
       <tbody>
         <tr>
           <td><%= image_tag @user.get_profile_image(80,80) %></td>
-          <td><%= book.title %></td>
+          <td>
+            <%= link_to book_path(book.id) do %>
+              <%= book.title %>
+            <% end %>
+          </td>
           <td><%= book.body %></td>
         </tr>
       </tbody>
