@@ -9,19 +9,9 @@ class ApplicationController < ActionController::Base
     root_path
   end
 
-  layout :layout_by_resource
-
   protected
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:email])
-  end
-  
-  def layout_by_resource
-    if devise_controller?
-      "sub-layout"
-    else
-      "application"
-    end
   end
 end
