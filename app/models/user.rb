@@ -10,12 +10,12 @@ class User < ApplicationRecord
 
   def get_profile_image(width, height)
     unless profile_image.attached?
-      file_path = Rails.root.join('app/assets/no_image.jpg')
+      file_path = Rails.root.join('app/assets/default-image.jpg')
       profile_image.attach(io: File.open(file_path), filename: 'default-image.jpg', content_type: 'image/jpeg')
     end
     profile_image.variant(resize_to_limit: [width, height]).processed
   end
-  
+
   validates :name, presence: true, length: { minimum: 2, maximum: 20 }
   validates :introduction, presence: false, length: { maximum: 50 }
 end
